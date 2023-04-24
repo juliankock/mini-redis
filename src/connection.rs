@@ -24,7 +24,8 @@ pub struct Connection {
     // sufficient for our needs.
     stream: BufWriter<TcpStream>,
 
-    // The buffer for reading frames.
+    // The buffer for reading frames. Here we do manually buffer handling. 
+    // A more high level approach would be to use `tokio_util::codec`.
     buffer: BytesMut,
 }
 
